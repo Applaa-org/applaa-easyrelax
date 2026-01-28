@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Clock, Sparkles, * as Icons } from 'lucide-react';
+import { CheckCircle2, Clock, Sparkles } from 'lucide-react';
+import * as Icons from 'lucide-react';
 import { RelaxationPrompt } from '../data/prompts';
 import { Button } from './ui/button';
 import { logCompletion } from '../lib/api';
@@ -15,7 +16,7 @@ export default function PromptCard({ prompt, isDaily }: PromptCardProps) {
   const [isCompleted, setIsCompleted] = useState(false);
   const [loading, setLoading] = useState(false);
   
-  const IconComponent = (Icons as any)[prompt.icon] || Icons.Sparkles;
+  const IconComponent = (Icons as any)[prompt.icon] || Sparkles;
 
   const handleComplete = async () => {
     setLoading(true);
